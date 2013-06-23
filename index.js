@@ -1,27 +1,25 @@
-var coffee = require('coffee-script');
+var pogo = require('pogo');
+var fs = require('fs');
 var through = require('through');
 var convert = require('convert-source-map');
 
 function compile(file, data) {
-    var compiled = coffee.compile(data, { sourceMap: true, generatedFile: file, inline: true, literate: isLiterate(file) });
-    var comment = convert
-        .fromJSON(compiled.v3SourceMap)
-        .setProperty('sources', [ file ])
-        .toComment();
-
-    return compiled.js + '\n' + comment;
+    var compiled = '';
+    try {
+        compiled = pogo.compile(fs.readFileSync(file, 'utf8'));
+    }
+    catch (e) {
+        throw new Error("PogoScript compilation failed for '" + file + "'\n" + e.toString())
+    }
+    return compiled;
 }
 
-function isCoffee (file) {
-    return /\.((lit)?coffee|coffee\.md)$/.test(file);
-}
-
-function isLiterate (file) {
-    return /\.(litcoffee|coffee\.md)$/.test(file);
+function isPogo (file) {
+    return /\.pogo$/.test(file);
 }
 
 module.exports = function (file) {
-    if (!isCoffee(file)) return through();
+    if (!isPogo(file)) return through();
 
     var data = '';
     return through(write, end);

@@ -1,37 +1,37 @@
 {
-    "name": "coffeeify",
-    "version": "0.4.1",
-    "description": "browserify v2 plugin for coffee-script with support for mixed .js and .coffee files",
-    "main": "index.js",
-    "dependencies": {
-        "coffee-script": "~1.6.2",
-        "through": "~2.2.0",
-        "convert-source-map": "~0.2.1"
-    },
-    "devDependencies": {
-        "tap": "~0.4.0",
-        "browserify": "~2.4.0"
-    },
-    "scripts": {
-        "test": "tap test/*.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/substack/coffeeify.git"
-    },
-    "homepage": "https://github.com/substack/coffeeify",
-    "keywords": [
-        "coffee-script",
-        "browserify",
-        "v2",
-        "js",
-        "plugin",
-        "transform"
-    ],
-    "author": {
-        "name": "James Halliday",
-        "email": "mail@substack.net",
-        "url": "http://substack.net"
-    },
-    "license": "MIT"
+  "name": "pogoify",
+  "version": "0.0.1",
+  "description": "browserify v2 plugin for PogoScript with support for mixed .js and .pogo files",
+  "main": "index.js",
+  "dependencies": {
+    "pogo": "~0.4.3",
+    "through": "~2.2.0",
+    "convert-source-map": "~0.2.1"
+  },
+  "devDependencies": {
+    "tap": "~0.4.0",
+    "browserify": "~2.4.0"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/featurist/pogoify.git"
+  },
+  "homepage": "https://github.com/featurist/pogoify",
+  "keywords": [
+    "pogo",
+    "browserify",
+    "v2",
+    "js",
+    "plugin",
+    "transform"
+  ],
+  "author": {
+    "name": "Josh Chisholm",
+    "email": "josh@featurist.co.uk",
+    "url": "http://featurist.co.uk"
+  },
+  "license": "MIT"
 }

@@ -5,7 +5,7 @@ var vm = require('vm');
 function bundle (file) {
     test('bundle transform', function (t) {
         t.plan(1);
-
+        
         var b = browserify();
         b.add(__dirname + file);
         b.transform(__dirname + '/..');
@@ -22,5 +22,4 @@ function bundle (file) {
     });
 }
 
-bundle('/../example/foo.coffee');
-bundle('/../example/foo.litcoffee');
+bundle('/../example/foo.pogo');
