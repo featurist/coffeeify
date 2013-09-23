@@ -44,6 +44,18 @@ $ node bundle.js
 555
 ```
 
+## Express
+
+    npm install browserify-middleware
+    
+Then, in app.js:
+
+    var browserify = require('browserify-middleware');
+    
+    ...
+    
+    app.get('app.js', browserify('./client/app.js', {transform: ['pogoify']}));
+
 # install
 
 With [npm](https://npmjs.org) do:
