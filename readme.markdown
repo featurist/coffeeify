@@ -39,9 +39,6 @@ var browserify = require('browserify-middleware');
 app.get('browserapp.js', browserify('./browser/app.js', {transform: ['pogoify'], extensions: ['.pogo']}));
 ```
 
-**please note, `extensions` is [not yet supported](https://github.com/ForbesLindesay/browserify-middleware/pull/22) in browserify-middleware. In the mean time you will have
-to require with the `.pogo` extension, as in `require './file.pogo'`.**
-
 # example files
 
 given some files written in a mix of `js` and `pogo`:
