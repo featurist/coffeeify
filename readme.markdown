@@ -4,64 +4,61 @@ browserify v2 plugin for PogoScript
 
 mix and match `.pogo` and `.js` files in the same project
 
-**important: when using require('path/to/file.pogo') remember to use .pogo extension**
-
 [![build status](https://secure.travis-ci.org/featurist/pogoify.png)](http://travis-ci.org/featurist/pogoify)
 
-# example
+# install
 
-given some files written in a mix of `js` and `pogo`:
-
-foo.pogo:
-
-``` pogo
-console.log(require './bar.js')
+```sh
+npm install pogoify
 ```
 
-bar.js:
+# usage
 
-``` js
-module.exports = require('./baz.pogo')(5)
+## command line
+
+```sh
+browserify -t pogoify --extension .pogo app.pogo > app.js
 ```
 
-baz.pogo:
+`-t pogoify` tells browserify to compile any `.pogo` file it finds.
+`--extension .pogo` tells browserify to consider files with the `.pogo` extension.
 
-``` js
-module.exports (n) = n * 111
-```
+You can also mix and match Pogoscript files with other languages supported by browserify.
 
-install pogoify into your app:
-
-```
-$ npm install pogoify
-```
-
-when you compile your app, just pass `-t pogoify` to browserify:
-
-```
-$ browserify -t pogoify foo.pogo > bundle.js
-$ node bundle.js
-555
-```
-
-## Express
+## express
 
     npm install browserify-middleware
     
 Then, in app.js:
 
-    var browserify = require('browserify-middleware');
+```js
+var browserify = require('browserify-middleware');
     
-    ...
+...
     
-    app.get('app.js', browserify('./client/app.js', {transform: ['pogoify']}));
-
-# install
-
-With [npm](https://npmjs.org) do:
-
+app.get('browserapp.js', browserify('./browser/app.js', {transform: ['pogoify'], extensions: ['.pogo']}));
 ```
-npm install pogoify
+
+**please note, `extensions` is [not yet supported](https://github.com/ForbesLindesay/browserify-middleware/pull/22) in browserify-middleware. In the mean time you will have
+to require with the `.pogo` extension, as in `require './file.pogo'`.**
+
+# example files
+
+given some files written in a mix of `js` and `pogo`:
+
+foo.pogo, the _entry_ file:
+```pogo
+console.log(require './bar')
+```
+
+bar.js:
+```js
+module.exports = require('./baz')(5)
+```
+
+baz.pogo:
+```pogo
+module.exports (n) = n * 111
 ```
 
 # license
