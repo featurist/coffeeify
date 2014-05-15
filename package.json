@@ -12,7 +12,8 @@
   },
   "devDependencies": {
     "tap": "~0.4.0",
-    "browserify": "~2.4.0"
+    "browserify": "~2.4.0",
+    "pogo": ""
   },
   "scripts": {
     "test": "tap test/*.js"
