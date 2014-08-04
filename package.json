@@ -1,6 +1,6 @@
 {
   "name": "pogoify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "browserify v2 plugin for PogoScript with support for mixed .js and .pogo files",
   "main": "index.js",
   "dependencies": {
