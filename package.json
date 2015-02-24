@@ -4,16 +4,16 @@
   "description": "browserify v2 plugin for PogoScript with support for mixed .js and .pogo files",
   "main": "index.js",
   "dependencies": {
-    "convert-source-map": "^0.5.0",
-    "through": "^2.3.6"
+    "convert-source-map": "0.5.0",
+    "through": "2.3.6"
   },
   "peerDependencies": {
     "pogo": ""
   },
   "devDependencies": {
-    "browserify": "^9.0.3",
+    "browserify": "9.0.3",
     "pogo": "",
-    "tap": "^0.6.0"
+    "tap": "0.6.0"
   },
   "scripts": {
     "test": "tap test/*.js"
